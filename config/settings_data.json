@@ -461,7 +461,7 @@
           "c0a36017-de8f-4a29-9551-d923840c2f7e": {
             "type": "announcement",
             "settings": {
-              "text": "<p>Welcome to our store<\/p>",
+              "text": "<p>Welcome to our store<\/p>\n<p>LAY-BUY payment plan available<\/p>",
               "btn_color": "#646670",
               "btn_border_color": "#ffffff",
               "btn_bg_color": "#ffffff",
