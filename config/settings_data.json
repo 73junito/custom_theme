@@ -467,10 +467,22 @@
               "btn_bg_color": "#ffffff",
               "btn_bg_color_gradient": ""
             }
+          },
+          "f8b0c06e-e768-4344-9ec1-05c8b4f9ba43": {
+            "type": "announcement",
+            "disabled": true,
+            "settings": {
+              "text": "<p>Welcome to our store<\/p>",
+              "btn_color": "#f84248",
+              "btn_border_color": "#ffffff",
+              "btn_bg_color": "#ffffff",
+              "btn_bg_color_gradient": ""
+            }
           }
         },
         "block_order": [
-          "c0a36017-de8f-4a29-9551-d923840c2f7e"
+          "c0a36017-de8f-4a29-9551-d923840c2f7e",
+          "f8b0c06e-e768-4344-9ec1-05c8b4f9ba43"
         ],
         "settings": {
           "enable_close": true,
