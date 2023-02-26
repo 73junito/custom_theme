@@ -10,7 +10,16 @@
         endif
     endif
 -%}
+
 <html class="no-js" lang="{{ request.locale.iso_code }}"{% if settings.enable_layout_rtl and enable_iso_rtl %} dir="rtl"{% endif %}>
+
+<script
+  type="text/javascript"
+  src="https://app.termly.io/embed.min.js"
+  data-auto-block="on"
+  data-website-uuid="cc76452e-f9aa-4abe-81cc-091d26182c07"
+></script>
+
     <head>
 	{% include "pandectes-rules" %}{% render 'cloudian-seo-meta-keywords-builder' %}
       <!-- Google tag (gtag.js) -->
