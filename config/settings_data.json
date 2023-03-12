@@ -320,6 +320,7 @@
     "gdpr_cookie_consent_bg": "#141414",
     "show_newsletter_popup": false,
     "newsletter_popup_delay": 5,
+    "show_newsletter_popup_image": false,
     "newsletter_popup_image": "shopify:\/\/shop_images\/newsletter-home-17.jpg",
     "newsletter_popup_title": "Join Our Mailing List",
     "newsletter_popup_desc": "Sign Up for exclusive updates, \nnew arrivals & insider only discounts",
