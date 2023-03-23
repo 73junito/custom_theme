@@ -14,7 +14,7 @@ input.addEventListener('change', () => {
     // Create a new image object
     const image = new Image();
 
-    // Add event listener to resize the image when loaded
+    // Add event listener to resize and compress the image when loaded
     image.addEventListener('load', () => {
       // Create a new canvas element
       const canvas = document.createElement('canvas');
@@ -32,11 +32,18 @@ input.addEventListener('change', () => {
       // Draw the resized image on the canvas
       ctx.drawImage(image, 0, 0, canvas.width, canvas.height);
 
-      // Get the optimized data URL from the canvas
-      const optimizedDataUrl = canvas.toDataURL('image/jpeg', 0.8);
+      // Get the compressed data URL from the canvas
+      canvas.toBlob(blob => {
+        const reader = new FileReader();
+        reader.readAsDataURL(blob);
+        reader.onloadend = () => {
+          // Get the optimized data URL from the compressed data URL
+          const optimizedDataUrl = reader.result;
 
-      // Do something with the optimized data URL
-      console.log(optimizedDataUrl);
+          // Do something with the optimized data URL
+          console.log(optimizedDataUrl);
+        };
+      }, 'image/jpeg', 0.8);
     });
 
     // Set the image source to the data URL
