@@ -144,8 +144,16 @@
                 }
             {%- endif -%}
         {%- endif -%}
-    }
-    </script>
+    
+  {%- assign vstar_timestamp = 'now' | date: '%s' | plus:0 -%}{%- if shop.metafields.vstar.expired_at and shop.metafields.vstar.expired_at >= vstar_timestamp and product.metafields.vstar.review_count and product.metafields.vstar.review_count > 0 -%}
+  ,"aggregateRating": {
+	"@type": "AggregateRating",
+	"ratingValue": "{{ product.metafields.vstar.rating_value }}",
+	"reviewCount": "{{ product.metafields.vstar.review_count }}"
+  }  
+  {%- endif -%}
+  }
+</script>
     <script type="application/ld+json">
     {
         "@context": "http://schema.org/",

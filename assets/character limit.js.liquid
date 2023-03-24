@@ -1,0 +1,13 @@
+const productDescription = document.getElementById("product-description");
+const charCount = document.getElementById("char-count");
+const maxChars = 1500; // set the maximum character limit
+
+productDescription.addEventListener("input", function() {
+  const remainingChars = maxChars - productDescription.value.length;
+  charCount.innerHTML = remainingChars; // update the remaining character count
+  
+  if (remainingChars < 0) {
+    productDescription.value = productDescription.value.substring(0, maxChars); // truncate the input text if it exceeds the maximum character limit
+    charCount.innerHTML = 0;
+  }
+});

@@ -1,0 +1,24 @@
+const fetch = require('node-fetch');
+
+const API_KEY = 'gBmWGsaDz7yPqJY2CYg7sAH8KmHVUKlV';
+
+async function convertCurrency(amount, currency) {
+  const response = await fetch(`https://v6.exchangerate-api.com/v6/${API_KEY}/latest/USD`);
+  const data = await response.json();
+
+  if (data.result === 'error') {
+    console.error(`Failed to fetch exchange rates: ${data['error-type']}`);
+    return;
+  }
+
+  const exchangeRate = data.conversion_rates[currency];
+  if (!exchangeRate) {
+    console.error(`Invalid currency: ${currency}`);
+    return;
+  }
+
+  const convertedAmount = amount * exchangeRate;
+  console.log(`Converted amount: ${convertedAmount.toFixed(2)} ${currency}`);
+}
+
+convertCurrency(50, 'EUR');
