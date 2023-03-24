@@ -28,7 +28,7 @@ html.no-js .no-js:not(html) {
 }
 
 html.no-js .no-js-inline {
-    isplay: inline-block !important;
+    display: inline-block !important;
 }
 
 html.no-js .no-js-hidden {
@@ -2175,7 +2175,7 @@ summary::-webkit-details-marker {
         pointer-events: none;
         z-index: -1;
         overflow: hidden;
-        webkit-transition: all .3s ease;
+        -webkit-transition: all .3s ease;
         transition: all .3s ease;
         box-shadow: 0px 1px 4px 0px rgb(0 0 0 / 15%);
     }
@@ -2961,7 +2961,7 @@ summary::-webkit-details-marker {
         overflow-x: hidden;
         overflow-y: auto;
         max-height: 80vh;
-        webkit-overflow-scrolling: touch;
+        -webkit-overflow-scrolling: touch;
     }
 
     .customPopup-banner{
