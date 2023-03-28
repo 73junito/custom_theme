@@ -20,7 +20,7 @@
         "show_vendor": true,
         "image_ratio": "portrait",
         "portrait_aspect_ratio": 133,
-        "show_cart_countdown": false,
+        "show_cart_countdown": true,
         "cart_countdown_time": 40,
         "show_trust_image": true,
         "continue_button_action": "1",
