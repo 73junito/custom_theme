@@ -3,7 +3,7 @@
     "main": {
       "type": "main-cart",
       "settings": {
-        "show_breadcrumb": false,
+        "show_breadcrumb": true,
         "breadcrumb_color": "#999999",
         "breadcrumb_alignment": "left",
         "show_page_title": true,
