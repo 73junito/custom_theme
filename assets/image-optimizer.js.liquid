@@ -1,1 +1,7 @@
 {{ github.com/CesiumGS/cesium/image-optimizer.js' | script_tag }}
+
+{% assign image_url = product.featured_image.src | img_url: 'large' %}
+{% assign optimized_image_url = optimizeImage(image_url) %}
+
+<img src="{{ optimized_image_url }}" alt="{{ product.title }}">
+
