@@ -35,6 +35,47 @@
 </script>
 
   <head>
+
+    {% assign page_type = 'website' %}
+{% assign page_url = page.url | absolute_url %}
+{% assign page_title = page.title %}
+{% assign page_description = page.meta_description %}
+{% assign page_image = page.featured_image.src | absolute_url %}
+{% assign page_site_name = shop.name %}
+
+{% comment %}
+Auto-generate metadata
+{% endcomment %}
+{% unless page_description %}
+  {% assign page_description = page.content | strip_html | truncatewords: 50 %}
+{% endunless %}
+
+{% unless page_image %}
+  {% assign page_image = shop.logo | img_url: '1024x1024' %}
+{% endunless %}
+
+{% unless page_title %}
+  {% assign page_title = page_type | capitalize %}
+{% endunless %}
+
+{% comment %}
+Include additional metadata fields
+{% endcomment %}
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{{ page_title }}</title>
+<meta name="description" content="{{ page_description }}">
+<meta property="og:type" content="{{ page_type }}">
+<meta property="og:url" content="{{ page_url }}">
+<meta property="og:title" content="{{ page_title }}">
+<meta property="og:description" content="{{ page_description }}">
+<meta property="og:image" content="{{ page_image }}">
+<meta property="og:site_name" content="{{ page_site_name }}">
+<meta itemprop="name" content="{{ page_title }}">
+<meta itemprop="description" content="{{ page_description }}">
+<meta itemprop="image" content="{{ page_image }}">
+
+    
 <script src="https://www.googleoptimize.com/optimize.js?id=OPT-TXMCBZ4"></script>
     
 	{% include "pandectes-rules" %}{% render 'cloudian-seo-meta-keywords-builder' %}
