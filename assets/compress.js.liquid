@@ -1,0 +1,28 @@
+const sharp = require('sharp');
+const fs = require('fs');
+
+// Provide the path to the input and output directories
+const inputDirectory = 'input_images';
+const outputDirectory = 'compressed_images';
+
+// Get the list of image files in the input directory
+fs.readdir(inputDirectory, (err, files) => {
+  if (err) {
+    console.error('Error reading input directory:', err);
+    return;
+  }
+
+  // Process each image file
+  files.forEach((file) => {
+    // Compress the image using sharp
+    sharp(`${inputDirectory}/${file}`)
+      .resize({ width: 800 }) // Set the desired width for the compressed image
+      .toFile(`${outputDirectory}/${file}`, (err) => {
+        if (err) {
+          console.error('Error compressing image:', err);
+        } else {
+          console.log(`Compressed ${file} successfully.`);
+        }
+      });
+  });
+});
