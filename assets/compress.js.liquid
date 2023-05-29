@@ -6,7 +6,7 @@ const inputDirectory = '"Z:\compress.js\input_images\images_skipped-ussolarfarml
 const outputDirectory = '"Z:\compress.js\compressed_images"';
 
 // Get the list of image files in the input directory
-fs.readdir(inputDirectory, (err, files) => {
+fs.readdir("Z:\compress.js\input_images\images_skipped-ussolarfarmllc.us.txt", (err, files) => {
   if (err) {
     console.error('Error reading input directory:', err);
     return;
