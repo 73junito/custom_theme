@@ -1,0 +1,31 @@
+from bs4 import BeautifulSoup import requests
+
+def fix_duplicate_h1(url): # Fetch the HTML content of the webpage response = requests.get(url) html_content =
+response.text
+
+# Parse the HTML content using BeautifulSoup soup = BeautifulSoup(html_content, "html.parser")
+
+# Find all H1 headings on the webpage h1_tags = soup.find_all("h1")
+
+# Create a set to keep track of encountered H1 headings encountered_headings = set()
+
+# Iterate over the H1 tags and check for duplicates for h1_tag in h1_tags: text = h1_tag.get_text() if text in
+encountered_headings: # Replace the duplicate H1 heading with a unique one h1_tag.string = "New Unique H1 Heading" else:
+encountered_headings.add(text)
+
+# Update the modified HTML content fixed_html_content = str(soup)
+
+# Return the fixed HTML content return fixed_html_content
+
+# Fetch the XML content of the sitemap sitemap_url = "https://ussolarfarmllc.us/sitemap.xml" response =
+requests.get(sitemap_url) sitemap_content = response.text
+
+# Parse the XML content using BeautifulSoup sitemap_soup = BeautifulSoup(sitemap_content, "xml")
+
+# Extract the URLs from the sitemap XML urls = [loc.text for loc in sitemap_soup.find_all("loc")]
+
+# Iterate over the URLs and fix duplicate H1 headings for each page for url in urls: fixed_content =
+fix_duplicate_h1(url)
+
+# Save the fixed content to a file or perform further actions as needed filename = url.split("/")[-1] + ".html" with
+open(filename, "w", encoding="utf-8") as file: file.write(fixed_content)
