@@ -20,9 +20,14 @@
 >
   <script
     type="text/javascript"
-    src="https://app.termly.io/embed.min.js"
+    {% if 'embed.min.js' | asset_exists %}
+      src="{{ 'embed.min.js' | asset_url }}"
+    {% else %}
+      <!-- Handle the case when 'embed.min.js' does not exist -->
+    {% endif %}
     data-auto-block="on"
     data-website-uuid="cc76452e-f9aa-4abe-81cc-091d26182c07"
+    async
   ></script>
 
   <a
@@ -47,10 +52,10 @@
 
   <head>
     {% assign page_type = 'website' %}
-    {% assign page_url = page.url | absolute_url %}
+    {% assign page_url = page.url {{ 'path/to/file' | absolute_url }}
     {% assign page_title = page.title %}
     {% assign page_description = page.meta_description %}
-    {% assign page_image = page.featured_image.src | absolute_url %}
+    {% assign page_image = page.featured_image.src | a{{ 'path/to/file' | absolute_url 
     {% assign page_site_name = shop.name %}
 
     {% comment %}
