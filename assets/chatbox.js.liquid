@@ -1,0 +1,55 @@
+// Replace with your actual Storefront API access token and store's domain
+const storefrontAccessToken = '705759f2856bd81f18d30ba0feb2d9b3';
+const storeDomain = 'https://www.ussolarfarmllc.net/';
+
+// Define training data
+const trainingData = [
+    {
+        input: 'Tell me about solar panels',
+        response: 'Solar panels are devices that convert sunlight into electricity.',
+    },
+    {
+        input: 'How do I install solar panels?',
+        response: 'Solar panel installation typically involves mounting the panels on your roof and connecting them to your electrical system.',
+    },
+    {
+        input: 'What is the cost of solar energy?',
+        response: 'The cost of solar energy can vary depending on factors like location and system size. You can get a quote from our website.',
+    },
+    // Add more training data as needed
+];
+
+// Function to find a response based on user input
+function findResponse(userInput) {
+    userInput = userInput.toLowerCase();
+    for (const data of trainingData) {
+        const inputText = data.input.toLowerCase();
+        if (userInput.includes(inputText)) {
+            return data.response;
+        }
+    }
+    return "I'm sorry, I don't understand your question.";
+}
+
+// Function to display chat messages
+function displayMessage(text, isUser = false) {
+    const chatDiv = document.getElementById('chat');
+    const messageDiv = document.createElement('div');
+    messageDiv.classList.add(isUser ? 'user-message' : 'bot-message');
+    messageDiv.textContent = text;
+    chatDiv.appendChild(messageDiv);
+}
+
+// Event listener for user input
+document.getElementById('userInput').addEventListener('keyup', function (event) {
+    if (event.key === 'Enter') {
+        const userInput = document.getElementById('userInput').value;
+        displayMessage(userInput, true);
+
+        const response = findResponse(userInput);
+        displayMessage(response);
+
+        // Clear the input field
+        document.getElementById('userInput').value = '';
+    }
+});
