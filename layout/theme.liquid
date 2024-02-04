@@ -1,3 +1,9 @@
+/**
+ * This is the main theme layout file.
+ * It contains the HTML structure of the theme and includes various liquid code snippets for dynamic content.
+ * The layout includes metadata, scripts, stylesheets, and other elements required for the theme.
+ * It also handles the layout customization options set in the theme settings.
+ */
 <!doctype html>
 {%- liquid
   if settings.list_iso_rtl != blank
@@ -23,7 +29,7 @@
     {% if 'embed.min.js' | asset_exists %}
       src="{{ 'embed.min.js' | asset_url }}"
     {% else %}
-      <!-- Handle the case when 'embed.min.js' does not exist -->
+      <!-- Handle the case when "embed.min.js" does not exist -->
     {% endif %}
     data-auto-block="on"
     data-website-uuid="cc76452e-f9aa-4abe-81cc-091d26182c07"
